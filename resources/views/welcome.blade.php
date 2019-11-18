@@ -42,11 +42,11 @@
                   @foreach ( $aProduct_new as $nuevosProductos )
                   <div class="col-sm">
                     <div class="card" style="width: 10rem;">
-                      <a href="#"><img class="card-img-top" src="{{asset($nuevosProductos->imgurl)}}" alt="Code Vein"></a>
+                      <a href="/product/{{$nuevosProductos->id}}"><img class="card-img-top" src="{{asset($nuevosProductos->imgurl)}}" alt="Code Vein"></a>
                       <div class="card-body">
-                      <p class="card-text"><b>{{ $nuevosProductos->price }}</b><br/>{{ $nuevosProductos->discountPercent }} 
+                      <p class="card-text"><b>{{ $nuevosProductos->price }} €</b><br/>
                       @if ($nuevosProductos->HasDiscount())
-                        %
+                      {{ $nuevosProductos->discountPercent }} %
                       @endif</p> 
                       </div>
                     </div>

@@ -33,6 +33,11 @@ class Product extends Model
             date('Y-m-d', strtotime($this->discountEnd_at)) <= date('Y-m-d', strtotime($sAhora));
     }
 
+    function Company()
+    {
+        return $this->belongsTo('App\Company');
+    }
+
     /**
      * Nuevos productos
      */
