@@ -22,6 +22,7 @@
                         <p><b>Descripción:</b></p>
                         <p><i>{{$product->descripcion}}</i></p>
                         <p><b>Precio:</b> {{$product->price}} €</p>
+                        <a href="{{ route('cart.add', $product->id) }}">Añadir</a>
                     </div>
                 </div>
               </div>

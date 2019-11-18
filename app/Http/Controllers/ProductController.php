@@ -4,9 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Cart;
+
 
 class ProductController extends Controller
 {
+    
+    public function addToCart(Product $product, Request $request)
+    {
+        if($request->session()->exists('cart'))
+        {
+            $cart = new Cart($request->session()->get('cart'));
+            $cart->add($product);
+            $request->session()->put("cart", $cart);
+            dd($cart);
+        }
+        else
+        {
+            $cart = new Cart();
+            $cart->add($product);
+            $request->session()->put("cart", $cart);
+            dd($cart);
+        }
+
+        return redirect('/')->with('status', 'El producto ha sido añadido al carro!');
+    }
+
     //
     function welcome()
     {
