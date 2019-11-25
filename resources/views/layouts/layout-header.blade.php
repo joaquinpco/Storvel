@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg nabvar-custom">
-  <a class="navbar-brand" href="#">Bytestore</a>
+  <a class="navbar-brand" href="/">Bytestore</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,12 +16,12 @@
         <a class="nav-link" href="#">Autenticación <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="{{ asset('ico/carritocompra.ico') }}" width=30/></a>
+        <a class="nav-link" href="/showCart">@if(session()->get('cart')) {{session()->get('cart')->iTotalItems}}@endif<img src="{{ asset('ico/carritocompra.ico') }}" width=30/></a>
       </li>
       <li class="nav-item dropdown">
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Autenticacion</a>
-          <a class="dropdown-item" href="#"><img src="{{ asset('ico/carritocompra.ico') }}" width=30/></a>
+          <a class="dropdown-item" href="/showCart"><img src="{{ asset('ico/carritocompra.ico') }}" width=30/></a>
         </div>
       </li>
     </ul>

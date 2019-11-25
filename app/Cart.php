@@ -33,7 +33,7 @@ class Cart extends Model
         $encontrado = false;
         $i = 0;
 
-        for(;$i < count($this->aItem) && 
+        for(;isset($this->aItem) && $i < count($this->aItem) && 
             !$encontrado; $i++)
         {
             if($this->aItem[$i]["id"] == $prdcto->id)
@@ -66,7 +66,7 @@ class Cart extends Model
         
         $i = 0;
 
-        for(;$i < count($this->aItem) && 
+        for(;isset($this->aItem) && $i < count($this->aItem) && 
             !$encontrado; $i++)
         {
             if($this->aItem[$i]["id"] == $prdcto->id)
@@ -82,7 +82,9 @@ class Cart extends Model
             if($this->aItem[$i-1]["cantidad"] < 2)
             {
                 $this->dTotalprice -= $prdcto->price;
+                $this->iTotalItems -= 1;
                 $this->aItem[$i-1] = NULL;
+                unset($this->aItem[$i - 1]);
             }
             else
             {
@@ -94,10 +96,26 @@ class Cart extends Model
         }
     }
 
-    public function removeAll()
+    public function removeAll(Product $prdcto)
     {
-        $this->aItem = NULL;
-        $this->iTotalItems = 0;
-        $this->dTotalprice = 0;
+
+        $encontrado = false;
+        
+        $i = 0;
+
+        for(;isset($this->aItem) && $i < count($this->aItem) && 
+            !$encontrado; $i++)
+        {
+            if($this->aItem[$i]["id"] == $prdcto->id)
+            {
+                $encontrado = true;
+            }
+        }
+        
+        $this->iTotalItems -= $this->aItem[$i - 1]["cantidad"];
+        $this->dTotalprice -= $this->aItem[$i - 1]["cantidad"] * $this->aItem[$i - 1]["precioactual"];
+
+        $this->aItem[$i - 1] = NULL;
+        unset($this->aItem[$i - 1]);
     }
 }

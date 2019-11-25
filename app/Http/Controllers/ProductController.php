@@ -15,16 +15,17 @@ class ProductController extends Controller
         if($request->session()->exists('cart'))
         {
             $cart = new Cart($request->session()->get('cart'));
+
             $cart->add($product);
             $request->session()->put("cart", $cart);
-            dd($cart);
+            $request->session()->save();
         }
         else
         {
             $cart = new Cart();
             $cart->add($product);
             $request->session()->put("cart", $cart);
-            dd($cart);
+            $request->session()->save();
         }
 
         return redirect('/')->with('status', 'El producto ha sido añadido al carro!');

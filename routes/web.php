@@ -18,3 +18,9 @@ Route::get('/product/{product}',
 
  Route::get('/addToCart/{product}',
  'ProductController@addToCart')->name('cart.add');
+
+ Route::get('/showCart',
+ 'CartController@show')->name('cart.show');
+
+ Route::get('/cart/{operation}/{product}',
+ 'CartController@operation')->name('cart.operation');
