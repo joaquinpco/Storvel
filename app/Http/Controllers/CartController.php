@@ -13,6 +13,13 @@ class CartController extends Controller
         return view('cart.show', compact('cart'));
     }
 
+    public function purchasing(Request $request)
+    {
+        $cart = new Cart($request->session()->get('cart'));
+        
+        return view('cart.purchasing', compact('cart'));
+    }
+
     public function add(Product $product,Request $request)
     {
         $cart = new Cart($request->session()->get('cart'));

@@ -24,3 +24,9 @@ Route::get('/product/{product}',
 
  Route::get('/cart/{operation}/{product}',
  'CartController@operation')->name('cart.operation');
+ Route::get('/cart/purchasing', 'CartController@purchasing')->name('cart.purchasing')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

@@ -20,14 +20,19 @@
   <body>
 
     <!-- SECTION: Main menu -->
-    @include("layouts.layout-header")
+    @include("layouts.header")
 
     <!-- LAYOUT: CENTER AND RIGHT BANNER -->
-    @yield("contenido")
-    @yield("bannerDrcha")
+    <div class="container-fluid" style="margin-top:30px;margin-bottom:30px;">
+      <div class="row">
+        @yield("content")
+
+        @yield("bannerDrcha")
+        </div>
+    </div>
 
     <!-- Footer -->
-    @include("layouts.layout-footer")
+    @include("layouts.footer")
 
     <!-- Loading Javascripts -->   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

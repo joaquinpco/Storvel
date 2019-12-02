@@ -1,10 +1,8 @@
-@extends('masters.master-welcome')
+@extends('layouts.master')
 
-@section('contenido')
+@section('content')
 
     <!-- LAYOUT: CENTER -->
-    <div class="container-fluid" style="margin-top:30px">
-      <div class="row">
         <div class="col-md-8">
             <!-- BLOCK: CENTER -->
             <div class="col-sm-10">
@@ -33,7 +31,8 @@
                                 <a class="btn btn-primary" href="{{ route('cart.operation',
  [ 'operation' => 'remove', 'product' => $cartItem['id']]) }}" role="button" style="width:50%;margin-top:3%;">-</a>
                                 <a class="btn btn-secondary btn-lg" href="{{ route('cart.operation',
-                                [ 'operation' => 'removeAll', 'product' => $cartItem['id']]) }}" role="button" style="width:80%;margin-top:3%;">Eliminar del carro</a>    
+                                [ 'operation' => 'removeAll', 'product' => $cartItem['id']]) }}" role="button" style="width:80%;margin-top:3%;">Eliminar del carro</a> 
+                                <a class="btn btn-secondary btn-lg" href="/cart/purchasing" style="width:80%;margin-top:3%;">Comprar</a>   
                             </p>
                         </div>
                       </div>
@@ -47,5 +46,4 @@
               
               </div>
               <br/>
-        </div>
 @endsection

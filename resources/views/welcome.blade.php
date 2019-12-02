@@ -1,10 +1,9 @@
-@extends('masters.master-welcome')
+@extends('layouts.master')
 
-@section('contenido')
+@section('content')
 
     <!-- LAYOUT: CENTER -->
-    <div class="container-fluid" style="margin-top:30px">
-      <div class="row">
+    
         <div class="col-md-8">
             <!-- BLOCK: CENTER -->
             <div class="col-sm-10">

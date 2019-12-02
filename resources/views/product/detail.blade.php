@@ -1,10 +1,8 @@
-@extends('masters.master-welcome')
+@extends('layouts.master')
 
-@section('contenido')
+@section('content')
 
     <!-- LAYOUT: CENTER -->
-    <div class="container-fluid" style="margin-top:30px">
-      <div class="row">
         <div class="col-md-8">
             <!-- BLOCK: CENTER -->
             <div class="col-sm-15">
@@ -22,7 +20,9 @@
                         <p><b>Descripción:</b></p>
                         <p><i>{{$product->descripcion}}</i></p>
                         <p><b>Precio:</b> {{$product->price}} €</p>
-                        <a href="{{ route('cart.add', $product->id) }}">Añadir</a>
+                        <a href="{{ route('cart.add', $product->id) }}" class="btn btn-secondary">Añadir</a>
+                        <p></p>
+                        <a href="/cart/purchasing" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                 <!-- Fin nuevos productos -->
               </div>
               <br/>
-        </div>
+              </div>
 @endsection
 
 @section("bannerDrcha")
